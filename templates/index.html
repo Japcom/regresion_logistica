@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Predicción Escolar
+</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='css/estilos.css') }}">
+
+</head>
+
+<body>
+
+<h1>
+Predicción de Aprobación Escolar
+</h1>
+
+<form action="/predecir" method="POST">
+
+<input type="number"
+name="horas"
+placeholder="Horas de estudio"
+required>
+
+<input type="number"
+name="faltas"
+placeholder="Faltas"
+required>
+
+<input type="number"
+name="trabajos"
+placeholder="Trabajos no entregados"
+required>
+
+<button type="submit">
+Predecir
+</button>
+
+</form>
+
+{% if mensaje %}
+
+<h2>{{ mensaje }}</h2>
+
+<h3>
+Probabilidad:
+{{ probabilidad }} %
+</h3>
+
+{% endif %}
+
+</body>
+</html>
